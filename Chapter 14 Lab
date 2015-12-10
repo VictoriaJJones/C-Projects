@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using static System.Console;
+namespace Ex1TestFileAndDirectory
+{
+    class Program
+    {
+        /*1.	Create a program named TestFileAndDirectory that allows a user to continually 
+        enter directory names until the user types end. If the directory name exists, display a list of
+        the files in it; otherwise, display a message indicating the directory does not exist. If the
+        directory exists and files are listed, prompt the user to enter one of the filenames. If the 
+        file exists, display its creation date and time; otherwise, display a message indicating the 
+        file does not exist. Create as many test directories and files as necessary to test your program.
+        */
+        static void Main(string[] args)
+        {
+            string directoryName;
+            string[] listOfFiles;
+            string fileName;
+
+
+            WriteLine("Enter a folder ");
+            directoryName = ReadLine();
+            while (directoryName != "end" && directoryName != "End")
+            {
+                if (Directory.Exists(directoryName))
+                {
+                    WriteLine("Directory exists, and it contains the following: ");
+                    listOfFiles = Directory.GetFiles(directoryName);
+                    for (int x = 0; x < listOfFiles.Length; ++x)
+                        WriteLine("  {0}", listOfFiles[x]);
+                    WriteLine("Enter on of the file names | Or type end to exit");
+                    fileName = ReadLine();
+                    if (File.Exists(fileName)) { 
+                        WriteLine("file exists");
+                    WriteLine("file was created " + File.GetCreationTime(fileName));
+                    }
+                    else
+                    {
+                        WriteLine("File does not exist");
+                    }
+                }
+                else
+                {
+                    WriteLine("Directory does not exist");
+                }
+
+                WriteLine("Enter a folder ");
+                directoryName = ReadLine();
+
+                //FileAttributes attr = File.GetAttributes(@"\C:\Users\Victoria_Jones\Documents\Visual Studio 2015\Projects\Chapter14Labs");
+
+            }
+
+            WriteLine("End of program.");
+
+        }
+    }
+    /*
+            FileAttributes attr = File.GetAttributes(@"c:\Path\To\Somewhere");
+            if((attr & FileAttributes.Directory) == FileAttributes.Directory)
+                {
+                         //it's a directory
+                }
+            */
+}
