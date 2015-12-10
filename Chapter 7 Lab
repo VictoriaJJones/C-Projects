@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Ex3PaintingEstimate
+{
+    class Program
+    {/*
+        Create a program named PaintingEstimate whose Main() method prompts a user for length and width of a room in feet.
+        Create a method that accepts the values and then computes the cost of painting the room, assuming the room is 
+        rectangular and has four full walls and 9-foot ceilings. The price of the job is $6 per square foot. 
+        Return the price to the Main() method, and display it.
+
+
+        */
+        static void Main(string[] args)
+        {
+            double myLength;
+            double myWidth;
+            double totalCost;
+           const double FOOT_OF_CEILINGS = 9;
+
+            WriteLine("Enter the length ");
+            myLength = Convert.ToDouble(ReadLine());
+
+            WriteLine("Enter the width ");
+            myWidth = Convert.ToDouble(ReadLine());
+
+            totalCost = myWidth * myLength;
+            DisplayPaintCost(totalCost);
+            //WriteLine("The feet is {0}  total cost is {1}", feet, fullPaintCost.ToString("C"));
+        }
+
+        //Method
+        private static double DisplayPaintCost(double feet)
+        {
+            const double pricePerSqure = 6;
+            double fullPaintCost;
+            fullPaintCost = (feet * pricePerSqure * 2) + (feet * pricePerSqure * 2);
+            WriteLine("The feet is {0}  total cost is {1}", feet, fullPaintCost.ToString("C"));
+            return   fullPaintCost;            
+            
+        }
+    }
+}
