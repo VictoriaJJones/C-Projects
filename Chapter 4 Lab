@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Ex7GuessingGame
+{
+    /*
+
+        "You can create a random number that is at least min but less than max using the following statements:
+       
+        Random ranNumberGenerator = new Random(); 
+        int randomNumber; 
+        randomNumber = ranNumberGenerator.Next(min, max);
+        
+        Write a program named GuessingGame that generates a random number between 1 and 10.
+        (In other words, min is 1 and max is 11.) Ask a user to guess the random number, 
+        then display the random number and a message indicating whether the user’s guess was too high, too low, or correct."
+    */
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           // Random random = new Random();
+           // int randomNumber = random.Next(1, 10);
+
+            Random ranNumberGenerator = new Random();
+            int randomNumber;
+            randomNumber = ranNumberGenerator.Next(1, 11);
+
+            //int min = 1;
+            // int max = 11;
+
+           // Console.WriteLine(r.Next(5, 10));
+            //Console.WriteLine(r.Next(5, 10));
+            //Console.WriteLine(r.Next(5, 10));
+
+            WriteLine("Please guess the random number ");
+            int GusseNum = Convert.ToInt32(ReadLine());
+
+            if (GusseNum > randomNumber)
+            {
+                WriteLine("too high random number is " + randomNumber);
+            }
+
+            else if (GusseNum < randomNumber)
+            {
+                WriteLine("too low random number is " + randomNumber);
+            }
+
+            else if (GusseNum > 11)
+            {
+                WriteLine("too high random number is " + randomNumber);
+            }
+            else if (GusseNum < 1)
+            {
+                WriteLine("too low random number is " + randomNumber);
+            }
+            
+
+            else if (GusseNum == randomNumber)
+                WriteLine("Correct random number is " + randomNumber);
+
+            else
+            {
+                WriteLine(" ");//+ ranNumberGenerator.Next(1, 11)
+            }            
+
+            //WriteLine("The Random number is " + ranNumberGenerator.Next(1, 10));
+
+            //int GussNum = Convert.ToInt32(ReadLine());
+
+        }
+    }
+}
