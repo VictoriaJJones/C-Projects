@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Ex4TestScores
+{
+    class Program
+    {
+        /*
+         Victoria Jones
+            "Write an application named TestScores that continuously prompts a user for test scores until the user enters a sentinel value.
+            A valid score ranges from 0 through 100. When the user enters a valid score, add it to a total; when the user enters an invalid score, 
+            display an error message. Before the program ends, display the number of scores entered and their average."
+ 
+
+    */
+
+        static void Main(string[] args)
+        {
+            double testScore;
+            double numbTest = 0;
+            double total = 0;
+            double average = 0;
+
+            WriteLine(" Enter test score  type -999 to exit");
+            testScore = Convert.ToSingle(ReadLine());
+
+            while (testScore !=  -999)
+            {
+                
+                if (testScore < 0 || testScore > 100)
+                {
+                    WriteLine("Error the test score must be greater than 0 and less than 100");
+                }
+                else
+                {
+                    //testScore
+                   // WriteLine(" ");
+                    total += testScore;
+                    numbTest++;
+                }
+
+                WriteLine(" Enter test score  type -999 to exit");
+                testScore = Convert.ToSingle(ReadLine());              
+
+
+            }
+            if (testScore == -999)            
+                average = total / numbTest;
+            WriteLine("Your average score is " + average);
+
+            WriteLine("End of program");
+
+
+
+        }
+    }
+}
