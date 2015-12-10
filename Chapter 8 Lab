@@ -1,0 +1,166 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+namespace Ex2IntegerFacts
+{
+    class Program
+    {
+        /*
+        2.	Create a program named IntegerFacts whose Main() method declares an array of 20 integers.
+        |||>>>Call a method to interactively fill the array with any number of values up to 20 or until a 
+        sentinel value is entered. If an entry is not an integer, reprompt the user. Call a second method
+        that accepts out parameters for the highest value in the array, lowest value in the array, sum of 
+        the values in the array, and arithmetic average. In the Main() method, display all the statistics.
+    */
+        static void Main(string[] args)
+        {
+
+            int[] arrayOf20 = new int[20];
+            int myHighest;
+            int myLowest;
+            int myASum;
+            int myAverage;
+            DisplayValues(arrayOf20);
+            DisplayHighLowSumAvrag(arrayOf20, out myHighest, out myLowest, out myASum, out myAverage );
+        }
+
+        private static void DisplayValues(int[] answers)
+        {
+            int counter = 0;
+            for (counter = 0; counter < answers.Length; counter++)
+            {
+                //for (int i = 1; i < 21; i++) { }
+
+                string input;
+
+                // if(input == "" || input == " ")
+
+                do
+                {
+                    WriteLine("Enter numbers {0} / to type exit", counter + 1);
+                    input = ReadLine();
+                    
+
+                } while (input == "" || input == " ");
+
+                //else
+                /*WriteLine("Enter numbers {0} / to type exit", counter);
+                input = Console.ReadLine();*/
+                if (input == "exit")
+                    break;
+                else if (input == "0")
+                {
+                    //WriteLine("0" != input);
+                }
+                else
+                    int.TryParse(input, out answers[counter]);
+            }
+            //if(input = 0)
+            {
+
+            }
+
+            for (int i = 0; i < counter; i++)//Displays all the numbers
+            {
+                Write("{0 , 4}", answers[i]);
+                
+            }
+            WriteLine(" ");
+
+        }
+        /* Call a second method
+        that accepts out parameters for the highest value in the array, lowest value in the array, sum of 
+        the values in the array, and arithmetic average.
+        */
+        private static void DisplayHighLowSumAvrag( int[] answers, out int Highest, out int lowest, out int sum, out int average )//answers
+        {
+           //int[] arrayAnswers = new int[20];
+            int myHighest=0;//myLowest
+            int myLowest=1;//myLowest
+            int myASum;
+            int myAverage = 0;
+
+            //answers = arrayAnswers;
+
+            Highest = myHighest;// = answers.Length;
+
+            for (int x = 0; x < answers.Length; ++x)
+            {  
+               // WriteLine(" ");
+
+                if (myHighest < answers[x])
+                {
+                    int tmp = myHighest;
+                    myHighest = answers[x];
+                    answers[x] = myHighest;
+                }               
+            }
+            WriteLine("highest is {0}", myHighest);
+            Highest = myHighest;
+
+
+           lowest = myLowest;
+            //myLowest = answers[0];
+            if (answers.Length > 0)
+            { 
+                for (int x = 0; x < answers.Length; ++x)
+                {       
+                    if (myLowest > answers[x])
+                    {
+                        int tmp = myLowest;
+                        myLowest = answers[x];
+                        answers[x] = myLowest;
+                    }
+                    //myLowest != 0;
+                    //lowest = myLowest;
+                } WriteLine("lowest is {0}", myLowest);
+            }
+
+           
+            myASum = 0;
+            for (int x = 0; x < answers.Length; ++x)
+            {
+                myASum += answers[x];
+                
+               
+            }
+            average = myAverage;
+            myAverage = (myASum / answers.Length);
+            WriteLine("The total sum is  " + myASum);
+            WriteLine("Average is : {0}", myAverage.ToString("F0"));
+            sum = myASum;
+
+            /* if (answers.Length > 0)
+             {
+                 myHighest = answers[0];
+                 myLowest = answers[0];
+                 for (int i = 0; i < answers.Length; i++)
+                 {
+                     if (myHighest < answers[i])
+                     {
+                         int tmp = myHighest;
+                         myHighest = answers[i];
+                         answers[i] = myHighest;
+                     }
+
+                     if (myLowest > answers[i])
+                     {
+                         int tmp = myLowest;
+                         myLowest = answers[i];
+                         answers[i] = myLowest;
+                     }
+                 }            //int.TryParse(Highest, out answers[i]);   
+
+                 Write("Highest is {0}", myHighest);
+                 WriteLine("");
+                 WriteLine("Lowest is is {0}", myLowest);
+             }
+             Highest = myHighest;
+             lowest = Convert.ToInt32(myLowest);*/
+        }
+
+    }
+}
