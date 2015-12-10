@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace TestClassifiedAd
+{
+    class ClassifiedAdClient
+    {
+        static void Main(string[] args)
+        {
+
+            ClassifiedAd Ad1 = new ClassifiedAd();
+
+            /*string words;
+            double price = .9;*/
+            double totalPrice;
+
+            Ad1.NumberOfWords = 10;
+
+            WriteLine("The Ad contains {0} words",Ad1.NumberOfWords);
+            WriteLine("The price is {0} cents per word ", Ad1.Price);
+            totalPrice = Ad1.NumberOfWords * Ad1.Price;
+            WriteLine("Total ptice is {0} per word", totalPrice.ToString("C"));
+
+
+            /* WriteLine("Enter Words ");
+            words = ReadLine();
+            totalPrice = words.Length * price;
+
+            WriteLine("num words is {0} ",words.Length);*/
+
+        }
+        class ClassifiedAd
+    {
+        private string usedCars;
+        private int numberOfWords;
+        private const double PRICE = .09;//.9
+
+        public string UsedCars
+        {
+            //get accessors
+            get
+            {
+                return usedCars;
+            }
+            //set accessors
+            set
+            {
+                usedCars = value;
+            }
+        }//end of prop
+
+        public int NumberOfWords
+        {
+            get
+            {
+                return numberOfWords;
+            }
+            set
+            {
+                numberOfWords = value;
+                
+                /*if (numberOfWords == " ")
+                    numberOfWords = 1;*/
+
+            }
+        }//end of prop
+
+
+        public double Price
+        {
+            get
+            {
+                return PRICE;
+            }
+
+        }//end of prop
+
+
+
+    }
+    }
+}
