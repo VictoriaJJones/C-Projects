@@ -1,0 +1,156 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace Ex3ScoresComparison
+{
+    class Program
+    {
+        /*
+        3 
+        Write a program named ScoresComparison that allows a user to input four integer quiz scores ranging from 0 through 100.
+        If no score is lower than any previous score, display a message that congratulates the user on making improvement,
+        and then display the scores in the order they were entered.
+        
+        If every score is lower than the previous one,
+        display the scores in the order they were entered, display an appropriate message about the scores’ descent,
+        and then display the scores in the more desirable reverse order. If the scores neither increase nor decrease consistently,
+        display an appropriate message along with the scores.
+    */
+
+        static void Main(string[] args)
+        {
+            int[] arrayOfScores = new int[4];
+            int quizNumb = 5;
+            int userQuizScores;
+            //int pervScore1;
+            int userQuizScores2;
+            int userQuizScores3;
+            int userQuizScores4;  
+
+
+            WriteLine("Enter user quiz score 1 ");
+            arrayOfScores[0] = Convert.ToInt32(ReadLine());
+
+            while (arrayOfScores[0] > 100 || arrayOfScores[0] < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 1 ");
+                arrayOfScores[0] = Convert.ToInt32(ReadLine());
+            }
+            WriteLine("Enter user quiz score 2 ");
+            arrayOfScores[1] = Convert.ToInt32(ReadLine());
+            while (arrayOfScores[1] > 100 || arrayOfScores[1] < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 2 ");
+                arrayOfScores[1] = Convert.ToInt32(ReadLine());
+            }
+            WriteLine("Enter user quiz score 3 ");
+            arrayOfScores[2] = Convert.ToInt32(ReadLine());
+            while (arrayOfScores[2] > 100 || arrayOfScores[2] < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 3 ");
+                arrayOfScores[2] = Convert.ToInt32(ReadLine());
+            }
+            WriteLine("Enter user quiz score 4 ");
+            arrayOfScores[3] = Convert.ToInt32(ReadLine());
+            while (arrayOfScores[3] > 100 || arrayOfScores[3] < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 4 ");
+                arrayOfScores[3] = Convert.ToInt32(ReadLine());
+            }
+
+
+
+            if (arrayOfScores[0] < arrayOfScores[1] && arrayOfScores[1] < arrayOfScores[2] && arrayOfScores[2] < arrayOfScores[3])
+            {
+                WriteLine("congratulations on making improvement");
+                WriteLine("Score1: {0} Score2: {1} Score3: {2} Score4: {3}", arrayOfScores[0],
+               arrayOfScores[1], arrayOfScores[2], arrayOfScores[3]);
+            }
+            else if (arrayOfScores[0] > arrayOfScores[1] && arrayOfScores[1] > arrayOfScores[2] && arrayOfScores[2] > arrayOfScores[3])
+            {
+                WriteLine("Score1: {0} Score2: {1} Score3: {2} Score4: {3}", arrayOfScores[0],
+               arrayOfScores[1], arrayOfScores[2], arrayOfScores[3]);
+
+                WriteLine("Impovment needed");
+
+                int x; Array.Reverse(arrayOfScores);
+                for (x = 0; x < arrayOfScores.Length; ++x)
+                    Write("Desirable Score order for improvement {0, 4}", arrayOfScores[x]);
+                WriteLine();
+            }
+
+            else
+                WriteLine("Your score order");
+                WriteLine("Score1: {0} Score2: {1} Score3: {2} Score4: {3}", arrayOfScores[0],
+                arrayOfScores[1], arrayOfScores[2], arrayOfScores[3]);
+
+
+
+
+            /*
+            WriteLine("Enter user quiz score 1 ");
+            userQuizScores = Convert.ToInt32(ReadLine());
+
+            while (userQuizScores > 100 || userQuizScores < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 1 ");
+                userQuizScores = Convert.ToInt32(ReadLine());
+            }
+            WriteLine("Enter user quiz score 2 ");
+            userQuizScores2 = Convert.ToInt32(ReadLine());
+            while (userQuizScores2 > 100 || userQuizScores2 < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 2 ");
+                userQuizScores2 = Convert.ToInt32(ReadLine());
+            }
+            WriteLine("Enter user quiz score 3 ");
+            userQuizScores3 = Convert.ToInt32(ReadLine());
+            while (userQuizScores3 > 100 || userQuizScores3 < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 3 ");
+                userQuizScores3 = Convert.ToInt32(ReadLine());
+            }
+            WriteLine("Enter user quiz score 4 ");
+            userQuizScores4 = Convert.ToInt32(ReadLine());
+            while (userQuizScores4 > 100 || userQuizScores4 < 0)
+            {
+                WriteLine("Please enter a valid test score of 0 through 100 ");
+                WriteLine("Enter user quiz score 4 ");
+                userQuizScores4 = Convert.ToInt32(ReadLine());
+            }
+            */
+
+
+
+            /*
+            for (int x = 1; x < quizNumb; x++)
+            {
+                
+
+                WriteLine("Enter user quiz score  {0} ", x);
+                userQuizScores = Convert.ToInt32(ReadLine());
+
+                //while (userQuizScores > 100 && (userQuizScores < 0)) {WriteLine("Please enter a valid test score of 0 through 100 "); }
+                
+                
+                else
+                    WriteLine("Enter user quiz score  {0} ", x);
+                userQuizScores = Convert.ToInt32(ReadLine());*
+            }
+        */
+
+            WriteLine(" ");
+        }
+    }
+}
