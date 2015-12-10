@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+namespace FindSquareRoot
+{
+    class Program
+    {
+        /*3.  Create a program named FindSquareRoot that finds the square root of a user’s input value. The Math class
+        contains a static method named Sqrt() that accepts a double and returns the parameter’s square root. If the user’s
+        entry cannot be converted to a double, display an appropriate message, and set the square root value to 0. Otherwise,
+        test the input number’s value. If it is negative, throw a new ApplicationException to which you pass the message
+        “Number can’t be negative.” and again set sqrt to 0. If the input value is a double and not negative, pass it to the
+        Math.Sqrt() method, and display the returned value.
+        */
+        static void Main(string[] args)
+        {
+            string stintInput;
+            double numb=0;
+            double SqRoot;
+            int zero = 0;
+            try
+            {
+
+                WriteLine("Enter a value");
+                stintInput = ReadLine();
+                numb = double.Parse(stintInput);
+                if (numb > 0)
+                {
+                    SqRoot = Math.Sqrt(numb);
+                    WriteLine(SqRoot);
+                }
+                else { 
+                    SqRoot = 0;
+                WriteLine(SqRoot);
+                    throw new ArgumentException("Number can't be negative.");
+                }
+               
+            }
+            //double r = Math.sqrt(n);
+            catch (ApplicationException e)
+            {
+                if (numb < 0)
+                {
+                    SqRoot = 0;
+                   
+                    WriteLine(SqRoot);
+                    SqRoot = 0;
+                                      
+                    // probably a misuse of exceptions
+                    WriteLine("{0}", e.Message);
+                    // throw new ApplicationException();
+                }
+            }
+            catch (Exception e)
+            {
+                WriteLine(e.Message);                
+            }
+            
+
+        }
+    }
+}
